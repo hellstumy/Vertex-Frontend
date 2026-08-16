@@ -1,28 +1,59 @@
 .main-page {
   display: flex;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
+
 aside {
   display: flex;
   flex-direction: column;
-  background-color: #0f172a;
+
+  width: 256px;
+  min-width: 256px;
   max-width: 256px;
-  height: 100vh;
+
+  height: 100%;
+
+  background-color: #0f172a;
+
+  overflow: hidden;
 }
+
 main {
   flex: 1;
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
   background-color: #f9fafb;
-  height: 100vh;
+  overflow: hidden;
 }
+
 main header {
+  flex: 0 0 auto;
+
   padding: 16px 24px;
+
   background-color: #fff;
   box-shadow: inset 0 -1px 0 0 #e2e8f0;
   border-bottom: 1px solid #f1f5f9;
 }
+
 .content {
-  overflow-y: auto;
-  height: 90vh;
+  flex: 1;
+  min-height: 0;
+
+  width: 100%;
+
   padding: 24px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .aside-head {
   padding: 20px;

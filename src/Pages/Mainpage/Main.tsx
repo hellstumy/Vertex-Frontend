@@ -31,6 +31,7 @@ export default function MainPage() {
     .replace(/^./, (char) => char.toUpperCase());
   return (
     <div className="main-page">
+      
       <aside>
         <div className="aside-head">
           <img src={logoImg} alt="Logo" />

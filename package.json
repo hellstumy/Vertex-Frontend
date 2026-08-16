@@ -1,7 +1,7 @@
 {
-  "name": "autoorders",
+  "name": "Vertex",
   "version": "1.0.0",
-  "description": "AutoOrders desktop application",
+  "description": "Vertex desktop application",
   "author": {
     "name": "JMcLin",
     "email": "dev@example.com"
@@ -15,9 +15,9 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "electron:dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron . --dev\"",
     "electron:build": "npm run build && electron-builder",
-    "electron:build:win": "npm run build && electron-builder --win",
+    "electron:build:win": "npm run build && electron-builder --win nsis --x64",
     "electron:build:linux": "npm run build && electron-builder --linux"
   },
   "dependencies": {
@@ -46,8 +46,8 @@
     "wait-on": "^9.1.0"
   },
   "build": {
-    "appId": "com.jmclinty.autoorders",
-    "productName": "AutoOrders",
+    "appId": "com.jmclinty.vertex",
+    "productName": "Vertex",
     "directories": {
       "output": "release"
     },
@@ -68,7 +68,7 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "AutoOrders"
+      "shortcutName": "Vertex"
     },
     "linux": {
       "target": [

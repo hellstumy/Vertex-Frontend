@@ -1,34 +1,62 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
-const isDev = !app.isPackaged;
+let mainWindow = null;
 
 function createWindow() {
-  const win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 1400,
     height: 900,
-    minWidth: 1000,
-    minHeight: 700,
+
+    minWidth: 900,
+    minHeight: 600,
+
+    show: false,
+
+    frame: false,
+    autoHideMenuBar: true,
+
+    backgroundColor: "#f8fafc",
+
     webPreferences: {
+      preload: path.join(__dirname, "preload.cjs"),
       contextIsolation: true,
       nodeIntegration: false,
+      sandbox: false,
     },
   });
 
-  if (isDev) {
-    win.loadURL("http://localhost:5173");
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.maximize();
+    mainWindow.show();
+  });
+
+  if (app.isPackaged) {
+    mainWindow.loadFile(path.join(__dirname, "../dist/index.html"));
   } else {
-    win.loadFile(path.join(__dirname, "../dist/index.html"));
+    mainWindow.loadURL("http://localhost:5173");
   }
 }
 
 app.whenReady().then(() => {
   createWindow();
 
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
+  ipcMain.on("window:minimize", () => {
+    mainWindow?.minimize();
+  });
+
+  ipcMain.on("window:maximize", () => {
+    if (!mainWindow) return;
+
+    if (mainWindow.isMaximized()) {
+      mainWindow.unmaximize();
+    } else {
+      mainWindow.maximize();
     }
+  });
+
+  ipcMain.on("window:close", () => {
+    mainWindow?.close();
   });
 });
 

@@ -1,0 +1,83 @@
+.window-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+
+    background: #111827;
+
+    z-index: 99999;
+
+    user-select: none;
+
+    -webkit-app-region: drag;
+}
+
+.window-title {
+    flex: 1;
+
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 12px;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    -webkit-app-region: drag;
+}
+
+.window-controls {
+    height: 32px;
+
+    display: flex;
+    flex-shrink: 0;
+
+    -webkit-app-region: no-drag;
+}
+
+.window-control {
+    width: 46px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    margin: 0;
+
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+    color: #9ca3af;
+
+    cursor: pointer;
+
+    -webkit-app-region: no-drag;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.window-control:hover {
+    background: #1f2937;
+    color: #ffffff;
+}
+
+.window-close:hover {
+    background: #e81123;
+    color: #ffffff;
+}
