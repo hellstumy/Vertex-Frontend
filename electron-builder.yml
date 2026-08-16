@@ -1,0 +1,14 @@
+appId: com.autoorders.app
+productName: AutoOrders
+
+directories:
+  output: release
+
+files:
+  - dist/**/*
+  - electron/**/*
+
+linux:
+  target:
+    - AppImage
+    - deb

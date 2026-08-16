@@ -1,0 +1,80 @@
+.login-page {
+  display: flex;
+  height: 100vh;
+}
+.left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #0f172a;
+  padding: 48px;
+  & h1 {
+    font-size: 44px;
+    color: #fff;
+  }
+  & p {
+    color: #90a1b9;
+  }
+}
+.title {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  & p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+.main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 75%;
+}
+.subtitle {
+  color: #51a2ff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.right {
+  background: #fff;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.right form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 448px;
+}
+
+.login-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 12px 14px;
+  border: 1px solid #fecdd3;
+  border-radius: 12px;
+  color: #be123c;
+  background: #fff1f2;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.login-alert svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.right form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}

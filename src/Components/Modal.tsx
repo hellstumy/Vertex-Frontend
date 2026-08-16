@@ -1,0 +1,18 @@
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+}
+export default function Modal({ isOpen, onClose, children }: ModalProps) {
+  return (
+    <div
+      onClick={onClose}
+      style={{ display: isOpen ? "flex" : "none" }}
+      className="modal-overlay"
+    >
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        {children}
+      </div>
+    </div>
+  );
+}
