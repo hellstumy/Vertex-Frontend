@@ -108,6 +108,7 @@ export default function Team() {
             {filters.map((filter) => (
               <li key={filter}>
                 <button
+                  id={`team-filter-${filter.toLowerCase()}`}
                   className={activeFilter === filter ? "active-filter" : ""}
                   onClick={() => setActiveFilter(filter)}
                 >
@@ -117,7 +118,7 @@ export default function Team() {
             ))}
           </ul>
         </div>
-        <button onClick={() => setIsModalOpen(true)} className="primary-btn">
+        <button id="team-new-worker" onClick={() => setIsModalOpen(true)} className="primary-btn">
           New worker
         </button>
       </div>
@@ -180,6 +181,7 @@ export default function Team() {
             <p>Role</p>
             <div>
               <button
+                id="worker-role-worker"
                 onClick={() => setSelectedRole("worker")}
                 type="button"
                 className={
@@ -189,6 +191,7 @@ export default function Team() {
                 Worker
               </button>
               <button
+                id="worker-role-admin"
                 onClick={() => setSelectedRole("admin")}
                 type="button"
                 className={
@@ -199,7 +202,7 @@ export default function Team() {
               </button>
             </div>
           </label>
-          <button type="submit" className="primary-btn">
+          <button id="worker-create-submit" type="submit" className="primary-btn">
             {!createLoading ? "Save" : "Loading..."}
           </button>
         </form>

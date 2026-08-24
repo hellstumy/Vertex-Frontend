@@ -75,6 +75,7 @@
         "AppImage",
         "deb"
       ],
+      "icon": "build/icon.png",
       "category": "Office"
     }
   }

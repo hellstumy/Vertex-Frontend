@@ -17,7 +17,7 @@ export default function DashTaskCard({ t }: Props) {
         <div className={t.isReady ? "paid" : "unpaid"}>
           {t.isReady ? "Ready" : "Not ready"}{" "}
         </div>
-        <button className="green-btn">
+        <button id={`dashboard-task-${t.id}-view`} className="green-btn">
           {<NavLink to={`/main/tasks/${t.id}`}>View</NavLink>}
         </button>
       </div>

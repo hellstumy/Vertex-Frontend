@@ -129,16 +129,18 @@ export default function TaskTr({ t }: Props) {
       <td>{t.finished_at ? formatDate(t.finished_at) : "Not finished"}</td>
       <td>{deadline ? formatDate(deadline) : "Without deadline"}</td>
       <td className="actions">
-        <button onClick={() => navigate(`/main/tasks/${t.id}`)}>
+        <button id={`task-${t.id}-view`} onClick={() => navigate(`/main/tasks/${t.id}`)}>
           <Eye color="#45556C" size={18} />
         </button>
         <button
+          id={`task-${t.id}-edit`}
           style={!isAdmin ? { display: "none" } : { display: "block" }}
           onClick={openModal}
         >
           <Pencil color="#45556C" size={18} />
         </button>
         <button
+          id={`task-${t.id}-delete`}
           style={!isAdmin ? { display: "none" } : { display: "block" }}
           onClick={handleDelete}
         >
@@ -152,7 +154,7 @@ export default function TaskTr({ t }: Props) {
             value={selectedWorker}
             onChange={(e) => setSelectedWorker(e.target.value)}
             name="worker"
-            id="selectWorker"
+            id={`task-${t.id}-worker`}
           >
             <option value="">Worker name</option>
             {workers.map((w) => (
@@ -162,42 +164,43 @@ export default function TaskTr({ t }: Props) {
             ))}
           </select>
           <p>{selectedWorker}</p>
-          <label htmlFor="title">
+          <label htmlFor={`task-${t.id}-title`}>
             <p>Title</p>
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               type="text"
-              id="title"
+              id={`task-${t.id}-title`}
               placeholder="Title"
             />
           </label>
           <div>
-            <label htmlFor="description">
+            <label htmlFor={`task-${t.id}-description`}>
               <p>Description</p>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 style={{ width: "330px", height: "180px" }}
                 name="desctiption"
-                id="desctiption"
+                id={`task-${t.id}-description`}
                 placeholder="lorem ipsum"
               ></textarea>
             </label>
-            <label htmlFor="comment">
+            <label htmlFor={`task-${t.id}-worker-comment`}>
               <p>Worker comment</p>
               <textarea
                 value={workerComment}
                 onChange={(e) => setWorkerComment(e.target.value)}
                 style={{ width: "330px", height: "180px" }}
                 name="comment"
-                id="comment"
+                id={`task-${t.id}-worker-comment`}
                 placeholder="lorem ipsum"
               ></textarea>
             </label>
           </div>
           <div>
             <button
+              id={`task-${t.id}-ready`}
               type="button"
               onClick={() => setIsReady(!isReady)}
               className={isReady ? "green-btn" : "red-btn"}
@@ -206,18 +209,19 @@ export default function TaskTr({ t }: Props) {
             </button>
           </div>
 
-          <label htmlFor="deadline">
+          <label htmlFor={`task-${t.id}-deadline`}>
             <p>Deadline</p>
             <input
               value={deadline}
               onChange={(e) => setDeadline(e.target.value)}
               type="datetime-local"
+              id={`task-${t.id}-deadline`}
             />
           </label>
-          <button onClick={handlefinishTask} className="secondary-btn">
+          <button id={`task-${t.id}-finish`} onClick={handlefinishTask} className="secondary-btn">
             Finish task
           </button>
-          <button type="submit" className="primary-btn">
+          <button id={`task-${t.id}-save`} type="submit" className="primary-btn">
             Save
           </button>
         </form>

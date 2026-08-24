@@ -89,19 +89,20 @@ export default function CurrentProfilePage() {
             <div className="current-profile__fields">
               <label>
                 <span>Full name</span>
-                <input defaultValue={userData?.fullname} readOnly />
+                <input id="current-profile-fullname" defaultValue={userData?.fullname} readOnly />
               </label>
               <label>
                 <span>Login</span>
-                <input defaultValue={userData?.login} readOnly />
+                <input id="current-profile-login" defaultValue={userData?.login} readOnly />
               </label>
               <label>
                 <span>Role</span>
-                <input defaultValue={userData?.role} readOnly />
+                <input id="current-profile-role" defaultValue={userData?.role} readOnly />
               </label>
               <label>
                 <span>Telegram ID</span>
                 <input
+                  id="current-profile-telegram-id"
                   defaultValue={String(userData?.telegram_id ?? "")}
                   readOnly
                 />
@@ -131,6 +132,7 @@ export default function CurrentProfilePage() {
               <label>
                 <span>Current password</span>
                 <input
+                  id="current-profile-old-password"
                   value={oldPassword}
                   onChange={(e) => setOldPassword(e.target.value)}
                   type="password"
@@ -140,6 +142,7 @@ export default function CurrentProfilePage() {
               <label>
                 <span>New password</span>
                 <input
+                  id="current-profile-new-password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   type="password"
@@ -149,6 +152,7 @@ export default function CurrentProfilePage() {
               <label>
                 <span>Confirm new password</span>
                 <input
+                  id="current-profile-confirm-password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   type="password"
@@ -161,6 +165,7 @@ export default function CurrentProfilePage() {
                 The new password must be at least 8 characters.
               </p>
               <button
+                id="current-profile-update-password"
                 onClick={handleChangePassword}
                 className="primary-btn"
                 type="button"

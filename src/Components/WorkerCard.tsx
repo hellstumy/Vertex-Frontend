@@ -39,7 +39,7 @@ export default function TeamCard({ w }: Props) {
             {w.role}
           </div>
         </div>
-        <button onClick={handleDelete}>
+        <button id={`worker-${w.id}-delete`} onClick={handleDelete}>
           <Trash2 size={18} />
         </button>
       </div>
@@ -53,6 +53,7 @@ export default function TeamCard({ w }: Props) {
         <p className="bold-p">Salary: ${w.total ? w.total : "None"}</p>
       </div>
       <button
+        id={`worker-${w.id}-profile`}
         onClick={() => navigate(`/main/team/${w.id}`)}
         className="primary-btn"
       >

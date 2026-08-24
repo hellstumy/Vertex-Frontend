@@ -100,7 +100,7 @@ export default function LoginPage() {
               id="password"
             />
           </label>
-          <button className="primary-btn" type="submit" disabled={loading}>
+          <button id="login-submit" className="primary-btn" type="submit" disabled={loading}>
             {!loading ? "Login →" : "Loading..."}
           </button>
         </form>

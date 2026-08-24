@@ -148,6 +148,7 @@ export default function Tasks() {
             {filters.map((filter) => (
               <li key={filter}>
                 <button
+                  id={`tasks-filter-${filter.toLowerCase().replaceAll(" ", "-")}`}
                   className={activeFilter === filter ? "active-filter" : ""}
                   onClick={() => setActiveFilter(filter)}
                 >
@@ -158,7 +159,7 @@ export default function Tasks() {
           </ul>
         </div>
 
-        <button onClick={() => openModal()} className="primary-btn">
+        <button id="task-new" onClick={() => openModal()} className="primary-btn">
           New Task
         </button>
       </div>
@@ -235,9 +236,10 @@ export default function Tasks() {
               value={deadline}
               onChange={(e) => setDeadline(e.target.value)}
               type="datetime-local"
+              id="task-create-deadline"
             />
           </label>
-          <button type="submit" className="primary-btn">
+          <button id="task-create-submit" type="submit" className="primary-btn">
             Save
           </button>
         </form>

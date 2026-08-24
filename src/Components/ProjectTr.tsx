@@ -145,16 +145,18 @@ export default function ProjectTr({ p }: Props) {
       <td>{formatDate(p.start_date)}</td>
       <td>{deadline ? formatDate(deadline) : "Without deadline"}</td>
       <td className="actions">
-        <button onClick={() => navigate(`/main/projects/${p.id}`)}>
+        <button id={`project-${p.id}-view`} onClick={() => navigate(`/main/projects/${p.id}`)}>
           <Eye color="#45556C" size={18} />
         </button>
         <button
+          id={`project-${p.id}-edit`}
           style={!isAdmin ? { display: "none" } : { display: "block" }}
           onClick={openModal}
         >
           <Pencil color="#45556C" size={18} />
         </button>
         <button
+          id={`project-${p.id}-delete`}
           style={!isAdmin ? { display: "none" } : { display: "block" }}
           onClick={handleDelete}
         >
@@ -164,13 +166,13 @@ export default function ProjectTr({ p }: Props) {
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <h2>Edit project</h2>
         <form onSubmit={handleUpdateProject} action="">
-          <label htmlFor="">
+          <label htmlFor={`project-${p.id}-worker`}>
             <p>Worker</p>
             <select
               value={workerId}
               onChange={(e) => setWorkerId(e.target.value)}
               name="worker"
-              id="worker"
+              id={`project-${p.id}-worker`}
             >
               <option value="">Select Worker</option>
               {workers.map((w) => (
@@ -180,55 +182,55 @@ export default function ProjectTr({ p }: Props) {
               ))}
             </select>
           </label>
-          <label htmlFor="projectName">
+          <label htmlFor={`project-${p.id}-name`}>
             <p>Project name</p>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
               type="text"
-              id="clientName"
+              id={`project-${p.id}-name`}
               placeholder="DVM Corp."
             />
           </label>
           <div>
-            <label htmlFor="clientName">
+            <label htmlFor={`project-${p.id}-client-name`}>
               <p>Client name</p>
               <input
                 value={clientName}
                 onChange={(e) => setClientName(e.target.value)}
                 type="text"
-                id="clientName"
+                id={`project-${p.id}-client-name`}
                 placeholder="DVM Corp."
               />
             </label>
-            <label htmlFor="client contact">
+            <label htmlFor={`project-${p.id}-client-contact`}>
               <p>Client contact</p>
               <input
                 value={clientContact}
                 onChange={(e) => setClientContact(e.target.value)}
                 type="text"
-                id="clientContact"
+                id={`project-${p.id}-client-contact`}
                 placeholder="test@mail.com"
               />
             </label>
           </div>
-          <label htmlFor="price">
+          <label htmlFor={`project-${p.id}-price`}>
             <p>Price</p>
             <input
               type="text"
-              id="price"
+              id={`project-${p.id}-price`}
               value={price}
               onChange={(e) => setPrice(Number(e.target.value))}
               placeholder="$1000.50"
             />
           </label>
-          <label htmlFor="mapUrl">
+          <label htmlFor={`project-${p.id}-map-url`}>
             <p>MapUrl</p>
             <input
               value={mapUrl}
               onChange={(e) => setMapUrl(e.target.value)}
               type="text"
-              id="MapUrl"
+              id={`project-${p.id}-map-url`}
               placeholder="https://maps.app.goo.gl/..."
             />
           </label>
@@ -236,6 +238,7 @@ export default function ProjectTr({ p }: Props) {
             <label htmlFor="status">
               <p>Status</p>
               <button
+                id={`project-${p.id}-status-new`}
                 onClick={() => setSelectedStatus("new")}
                 type="button"
                 className={
@@ -245,6 +248,7 @@ export default function ProjectTr({ p }: Props) {
                 New
               </button>
               <button
+                id={`project-${p.id}-status-in-progress`}
                 onClick={() => setSelectedStatus("inprogress")}
                 type="button"
                 className={
@@ -256,6 +260,7 @@ export default function ProjectTr({ p }: Props) {
                 In Progress
               </button>
               <button
+                id={`project-${p.id}-status-done`}
                 onClick={() => setSelectedStatus("done")}
                 type="button"
                 className={
@@ -269,6 +274,7 @@ export default function ProjectTr({ p }: Props) {
               <p>Is Paid?</p>
               <div>
                 <button
+                  id={`project-${p.id}-paid-yes`}
                   onClick={() => setIsPaid(true)}
                   type="button"
                   className={isPaid === true ? "green-btn" : "secondary-btn"}
@@ -276,6 +282,7 @@ export default function ProjectTr({ p }: Props) {
                   Yes
                 </button>
                 <button
+                  id={`project-${p.id}-paid-no`}
                   onClick={() => setIsPaid(false)}
                   type="button"
                   className={isPaid === false ? "red-btn" : "secondary-btn"}
@@ -285,23 +292,25 @@ export default function ProjectTr({ p }: Props) {
               </div>
             </label>
           </div>
-          <label htmlFor="endDate">
+          <label htmlFor={`project-${p.id}-end-date`}>
             <p>Finish Date</p>
             <input
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               type="date"
+              id={`project-${p.id}-end-date`}
             />
           </label>
-          <label htmlFor="deadline">
+          <label htmlFor={`project-${p.id}-deadline`}>
             <p>Deadline</p>
             <input
               value={deadline}
               onChange={(e) => setDeadline(e.target.value)}
               type="datetime-local"
+              id={`project-${p.id}-deadline`}
             />
           </label>
-          <button type="submit" className="primary-btn">
+          <button id={`project-${p.id}-save`} type="submit" className="primary-btn">
             Save
           </button>
         </form>

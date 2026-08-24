@@ -82,7 +82,7 @@ export default function MainPage() {
             <NavLink to="/main/profile">
               <h3>{user?.login}</h3>
             </NavLink>
-            <button onClick={handleLogout}>
+            <button id="logout" onClick={handleLogout}>
               <LogOut color="#45556C" />
             </button>
           </div>

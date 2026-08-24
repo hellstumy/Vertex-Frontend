@@ -77,6 +77,7 @@ export default function TaskInfoPage() {
     <section className="task-info">
       <div className="task-info__header">
         <button
+          id="task-info-back"
           className="secondary-btn task-info__back"
           type="button"
           onClick={() => navigate(-1)}
@@ -91,7 +92,7 @@ export default function TaskInfoPage() {
           </div>
           <p className="gray-p">Task ID: {task?.id}</p>
         </div>
-        <button onClick={() => setIsModalOpen(true)} className="primary-btn">
+        <button id="task-info-complete" onClick={() => setIsModalOpen(true)} className="primary-btn">
           Complete task
         </button>
       </div>
@@ -201,7 +202,7 @@ export default function TaskInfoPage() {
             placeholder="Add your comment"
             id="commentFromWorker"
           />
-          <button type="submit" className="primary-btn">
+          <button id="task-info-submit" type="submit" className="primary-btn">
             Submit
           </button>
         </form>

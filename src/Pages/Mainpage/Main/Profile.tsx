@@ -76,6 +76,7 @@ export default function WorkerProfilePage() {
     <section className="worker-profile">
       <div className="worker-profile__topbar">
         <button
+          id="worker-profile-back"
           className="secondary-btn"
           type="button"
           onClick={() => navigate(-1)}
@@ -171,6 +172,7 @@ export default function WorkerProfilePage() {
                 <span>Percentage from order</span>
                 <div className="worker-profile__input-suffix">
                   <input
+                    id="worker-percentage"
                     type="number"
                     value={percent}
                     onChange={(e) => setPercent(Number(e.target.value))}
@@ -184,6 +186,7 @@ export default function WorkerProfilePage() {
                 <div className="worker-profile__input-suffix">
                   <span>$</span>
                   <input
+                    id="worker-monthly-total"
                     type="number"
                     value={total}
                     onChange={(e) => setTotal(Number(e.target.value))}
@@ -195,10 +198,11 @@ export default function WorkerProfilePage() {
           </article>
 
           <div className="worker-profile__actions">
-            <button className="secondary-btn" type="button">
+            <button id="worker-profile-cancel" className="secondary-btn" type="button">
               Cancel
             </button>
             <button
+              id="worker-profile-save"
               onClick={handleUpdate}
               className="primary-btn"
               type="button"

@@ -20,15 +20,15 @@ export default function Settings() {
             </div>
             <div className="settings-page__options">
               <label className="settings-page__option">
-                <input type="checkbox" defaultChecked />
+                <input id="settings-task-updates" type="checkbox" defaultChecked />
                 <span><strong>Task updates</strong><small>When a task is assigned, updated, or completed.</small></span>
               </label>
               <label className="settings-page__option">
-                <input type="checkbox" defaultChecked />
+                <input id="settings-project-deadlines" type="checkbox" defaultChecked />
                 <span><strong>Project deadlines</strong><small>Reminders before a project deadline is due.</small></span>
               </label>
               <label className="settings-page__option">
-                <input type="checkbox" />
+                <input id="settings-weekly-summary" type="checkbox" />
                 <span><strong>Weekly summary</strong><small>A summary of active projects and tasks every Monday.</small></span>
               </label>
             </div>
@@ -53,7 +53,7 @@ export default function Settings() {
           <ShieldCheck size={24} />
           <h2>Your data is secure</h2>
           <p>Account and workspace permissions are managed separately by your administrator.</p>
-          <button className="secondary-btn" type="button">Save preferences</button>
+          <button id="settings-save-preferences" className="secondary-btn" type="button">Save preferences</button>
         </div>
       </div>
     </section>

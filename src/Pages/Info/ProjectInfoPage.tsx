@@ -95,6 +95,7 @@ export default function ProjectInfoPage() {
     <section className="project-info">
       <div className="project-info-head">
         <button
+          id="project-info-back"
           onClick={() => navigate(-1)}
           className="secondary-btn"
           aria-label="Go back"
@@ -182,7 +183,7 @@ export default function ProjectInfoPage() {
                   type="text"
                   placeholder="Add a comment..."
                 />
-                <button type="submit" className="primary-btn">
+                <button id="project-comment-submit" type="submit" className="primary-btn">
                   Post
                 </button>
               </form>

@@ -8,6 +8,7 @@ export default function WindowBar() {
 
       <div className="window-controls">
         <button
+          id="window-minimize"
           type="button"
           className="window-control"
           onClick={() => window.electronAPI.minimize()}
@@ -17,6 +18,7 @@ export default function WindowBar() {
         </button>
 
         <button
+          id="window-maximize"
           type="button"
           className="window-control"
           onClick={() => window.electronAPI.maximize()}
@@ -26,6 +28,7 @@ export default function WindowBar() {
         </button>
 
         <button
+          id="window-close"
           type="button"
           className="window-control window-close"
           onClick={() => window.electronAPI.close()}

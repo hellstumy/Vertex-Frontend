@@ -28,7 +28,7 @@ export default function CommentCard({ c }: Props) {
         <h3>{c.title} </h3>
         <p>{c.description}</p>
       </div>
-      <button onClick={handleCommentDelete} className="secondary-btn">
+      <button id={`comment-${c.id}-delete`} onClick={handleCommentDelete} className="secondary-btn">
         <TrashIcon />
       </button>
     </div>

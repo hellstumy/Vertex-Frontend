@@ -133,6 +133,7 @@ export default function Projects() {
             {filters.map((filter) => (
               <li key={filter}>
                 <button
+                  id={`projects-filter-${filter.toLowerCase().replaceAll(" ", "-")}`}
                   className={activeFilter === filter ? "active-filter" : ""}
                   onClick={() => setActiveFilter(filter)}
                 >
@@ -144,6 +145,7 @@ export default function Projects() {
         </div>
 
         <button
+          id="project-new"
           style={!isAdmin ? { display: "none" } : { display: "block" }}
           onClick={() => setIsModalOpen(true)}
           className="primary-btn"
@@ -215,7 +217,7 @@ export default function Projects() {
               placeholder="https://maps.app.goo.gl/..."
             />
           </label>
-          <button type="submit" className="primary-btn">
+          <button id="project-create-submit" type="submit" className="primary-btn">
             Save
           </button>
         </form>
